@@ -6,10 +6,16 @@ import getConfig from 'next/config';
 const { publicRuntimeConfig } = getConfig();
 
 export default class Belegung extends Component {
-  static async getInitialProps() {
+  state = {
+    bookings: [],
+  }
+
+  async componentDidMount() {
     const res = await axios.get(`${publicRuntimeConfig.apiUrl}/booking-dates`);
-    return { bookings: res.data };
-  };
+    this.setState({
+      bookings: res.data,
+    });
+  }
 
   static renderBooking(booking) {
     const { arrivalDate, departureDate } = booking;
@@ -19,7 +25,7 @@ export default class Belegung extends Component {
   }
 
   render() {
-    const { bookings } = this.props;
+    const { bookings } = this.state;
     return (
       <ul>
         {bookings.map(Belegung.renderBooking)}
