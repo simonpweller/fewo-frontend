@@ -1,7 +1,8 @@
+import getConfig from 'next/config';
 import React, { Component } from 'react'
 import axios from 'axios';
 import { parse, format } from 'date-fns';
-import getConfig from 'next/config';
+import Calendar from '../components/Calendar';
 
 const { publicRuntimeConfig } = getConfig();
 
@@ -27,9 +28,12 @@ export default class Belegung extends Component {
   render() {
     const { bookings } = this.state;
     return (
-      <ul>
-        {bookings.map(Belegung.renderBooking)}
-      </ul>
+      <>
+        <ul>
+          {bookings.map(Belegung.renderBooking)}
+        </ul>
+        <Calendar />
+      </>
     )
   }
 }
