@@ -1,39 +1,40 @@
+import Page from '../components/Page';
 import getConfig from 'next/config';
 import React, { Component } from 'react'
 import axios from 'axios';
-import { parse, format } from 'date-fns';
+import { isSameDay } from 'date-fns';
 import Calendar from '../components/Calendar';
+import Spinner from '../components/Spinner';
 
 const { publicRuntimeConfig } = getConfig();
 
 export default class Belegung extends Component {
   state = {
-    bookings: [],
+    bookedDates: null,
   }
 
   async componentDidMount() {
-    const res = await axios.get(`${publicRuntimeConfig.apiUrl}/booking-dates`);
+    const res = await axios.get(`${publicRuntimeConfig.apiUrl}/booked-dates`);
     this.setState({
-      bookings: res.data,
+      bookedDates: res.data,
     });
   }
 
-  static renderBooking(booking) {
-    const { arrivalDate, departureDate } = booking;
-    return (
-      <li key={booking.id}>{format(parse(arrivalDate), 'DD-MM-YYYY')} - {format(parse(departureDate), 'DD-MM-YYYY')}</li>
-    )
+  hasDateBooking = date => {
+    return Array.isArray(this.state.bookedDates) &&
+      this.state.bookedDates.some(bookedDate => isSameDay(bookedDate, date));
   }
 
   render() {
-    const { bookings } = this.state;
+    const { bookedDates } = this.state;
     return (
-      <>
-        <ul>
-          {bookings.map(Belegung.renderBooking)}
-        </ul>
-        <Calendar />
-      </>
+      <Page>
+        {
+          bookedDates
+            ? <Calendar hasDateBooking={this.hasDateBooking} />
+            : <Spinner color={'#065535'} />
+        }
+      </Page>
     )
   }
 }

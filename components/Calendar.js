@@ -56,13 +56,33 @@ class Calendar extends React.Component {
           {[...Array(weeksToDisplay)].map((el, index) => (
             <tr key={index}>
               {dayList.slice(index * daysPerWeek, (index + 1) * daysPerWeek).map(day => (
-                <td key={getDate(day)}>
+                <td key={getDate(day)} className={this.props.hasDateBooking(day) ? 'booked' : ''}>
                   {getDate(day)}
                 </td>
               ))}
             </tr>
           ))}
         </tbody>
+        <style jsx>
+          {`
+            tr {
+              display: flex;
+              justify-content: space-between;
+            }
+            th {
+              padding: 10px;
+            }
+            th, td {
+              flex: 1;
+              text-align: center;
+            }
+            .booked {
+              color: red;
+              font-weight: bold;
+              color: red;
+            }
+          `}
+        </style>
       </table>
 
       <button onClick={this.decrementMonth}>Back</button>
