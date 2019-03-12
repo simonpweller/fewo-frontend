@@ -1,9 +1,14 @@
 import Link from 'next/link';
-import Page from '../components/Page';
+import withPage from '../components/Page';
+import { FormattedMessage } from 'react-intl';
 
-export default () => (
-  <Page>
-    Welcome to next.js!
-    <Link prefetch href="/belegung"><a>Belegung</a></Link>
-  </Page>
-);
+export function Index(props) {
+  return (
+    <>
+      <FormattedMessage id={'helloWorld'} />
+      <Link prefetch href="/belegung"><a>Belegung</a></Link>
+    </>
+  )
+}
+
+export default withPage(Index);

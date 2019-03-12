@@ -1,4 +1,4 @@
-import Page from '../components/Page';
+import withPage from '../components/Page';
 import getConfig from 'next/config';
 import React, { Component } from 'react'
 import axios from 'axios';
@@ -10,7 +10,7 @@ import { primary } from '../theme/colors';
 
 const { publicRuntimeConfig } = getConfig();
 
-export default class Belegung extends Component {
+export class Belegung extends Component {
   state = {
     bookedDates: null,
   }
@@ -30,13 +30,11 @@ export default class Belegung extends Component {
   render() {
     const { bookedDates } = this.state;
     return (
-      <Page>
-        {
-          bookedDates
-            ? <Calendar hasDateBooking={this.hasDateBooking} />
-            : <Spinner color={primary} />
-        }
-      </Page>
+      bookedDates
+        ? <Calendar hasDateBooking={this.hasDateBooking} />
+        : <Spinner color={primary} />
     )
   }
 }
+
+export default withPage(Belegung);

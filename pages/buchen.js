@@ -1,17 +1,11 @@
-import React, { Component } from 'react';
-import Page from '../components/Page';
+import React from 'react';
+import withPage from '../components/Page';
 import BookingForm from '../components/BookingForm';
 
-
-
-class Buchen extends Component {
-  render() {
-    return (
-      <Page>
-        <BookingForm />
-      </Page>
-    )
-  }
+function Buchen() {
+  return (
+    <BookingForm />
+  )
 }
 
-export default Buchen;
+export default withPage(Buchen);

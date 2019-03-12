@@ -18,6 +18,10 @@
     "next": "^8.0.0",
     "react": "^16.6.8",
     "react-dom": "^16.6.8",
+    "react-intl": "^2.8.0",
     "react-leaflet": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/react-intl": "^2.3.17"
   }
 }

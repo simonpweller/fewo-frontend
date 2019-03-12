@@ -1,9 +1,8 @@
 import React from 'react';
-import { getMonth, format, getYear, eachDay, startOfISOWeek, addWeeks, getDate } from 'date-fns';
-import german from 'date-fns/locale/de'
+import { getMonth, getYear, eachDay, startOfISOWeek, addWeeks, getDate } from 'date-fns';
+import { FormattedDate, FormattedMessage } from 'react-intl';
 
 const now = new Date();
-
 class Calendar extends React.Component {
   state = {
     year: getYear(now),
@@ -37,19 +36,25 @@ class Calendar extends React.Component {
   }
 
   render() {
-    const weekdays = ['Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag', 'Sonntag'];
+    const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
     const startingDate = startOfISOWeek(new Date(this.state.year, this.state.month, 1));
     const daysPerWeek = 7;
     const weeksToDisplay = 6;
     const dayList = eachDay(startingDate, addWeeks(startingDate, weeksToDisplay));
 
     return <div>
-      <h1>{format(new Date(this.state.year, this.state.month, 1), 'MMMM YYYY', { locale: german })}</h1>
+      <h1>
+        <FormattedDate
+          value={new Date(this.state.year, this.state.month, 1)}
+          year='numeric'
+          month='long'
+        />
+      </h1>
 
       <table>
         <thead>
           <tr>
-            {weekdays.map(weekday => <th key={weekday}>{weekday}</th>)}
+            {weekdays.map(weekday => <th key={weekday}><FormattedMessage id={weekday} /></th>)}
           </tr>
         </thead>
         <tbody>
@@ -85,8 +90,12 @@ class Calendar extends React.Component {
         </style>
       </table>
 
-      <button onClick={this.decrementMonth}>Back</button>
-      <button onClick={this.incrementMonth}>Forward</button>
+      <button onClick={this.decrementMonth}>
+        <FormattedMessage id={'back'} />
+      </button>
+      <button onClick={this.incrementMonth}>
+        <FormattedMessage id={'forward'} />
+      </button>
     </div >
 
   }

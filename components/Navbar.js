@@ -1,32 +1,48 @@
 import React from 'react'
 import Link from 'next/link';
 import { primary, textLight } from '../theme/colors';
+import { FormattedMessage } from 'react-intl';
 
-export default function Navbar() {
+export default function Navbar({ locale, setLocale }) {
   return (
     <nav>
-      <ul>
-        <li>
-          <Link href="/">
-            <a>Ferien in Hetzdorf</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/belegung">
-            <a>Belegung</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/buchen">
-            <a>Buchen</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/anfahrt">
-            <a>Anfahrt</a>
-          </Link>
-        </li>
-      </ul>
+      <div>
+        <ul>
+          <li>
+            <Link href="/">
+              <a>
+                <FormattedMessage id={'HolidaysInHetzdorf'} />
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/belegung">
+              <a>
+                <FormattedMessage id={'Availability'} />
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/buchen">
+              <a>
+                <FormattedMessage id={'Booking'} />
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/anfahrt">
+              <a>
+                <FormattedMessage id={'Directions'} />
+              </a>
+            </Link>
+          </li>
+        </ul>
+        {
+          <button onClick={() => setLocale(locale === 'de' ? 'en' : 'de')}>
+            <FormattedMessage id={`${locale === 'de' ? 'English' : 'German'}`} />
+          </button>
+        }
+      </div>
       <style jsx>
         {`
           nav {
@@ -34,12 +50,18 @@ export default function Navbar() {
             color: ${textLight};
             height: 50px;
           }
-          ul {
+          div {
             max-width: 960px;
             margin: auto;
-            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          ul {
+            margin: auto 0;
             padding: 0;
             display: flex;
+            list-style: none;
           }
           li {
             padding: 0 15px;
