@@ -6,6 +6,8 @@ import { isSameDay } from 'date-fns';
 import Calendar from '../components/Calendar';
 import Spinner from '../components/Spinner';
 
+import { primary } from '../theme/colors';
+
 const { publicRuntimeConfig } = getConfig();
 
 export default class Belegung extends Component {
@@ -32,7 +34,7 @@ export default class Belegung extends Component {
         {
           bookedDates
             ? <Calendar hasDateBooking={this.hasDateBooking} />
-            : <Spinner color={'#065535'} />
+            : <Spinner color={primary} />
         }
       </Page>
     )
