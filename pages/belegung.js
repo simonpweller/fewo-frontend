@@ -8,7 +8,7 @@ import Spinner from '../components/Spinner';
 
 import { primary } from '../theme/colors';
 
-const { publicRuntimeConfig } = getConfig();
+const { publicRuntimeConfig = {} } = getConfig() || {};
 
 export class Belegung extends Component {
   state = {
