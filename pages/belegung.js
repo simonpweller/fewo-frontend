@@ -1,4 +1,3 @@
-import withPage from '../components/Page';
 import getConfig from 'next/config';
 import React, { Component } from 'react'
 import axios from 'axios';
@@ -37,4 +36,4 @@ export class Belegung extends Component {
   }
 }
 
-export default withPage(Belegung);
+export default Belegung;

@@ -1,5 +1,4 @@
 import React from 'react';
-import withPage from '../components/Page';
 import BookingForm from '../components/BookingForm';
 
 function Buchen() {
@@ -8,4 +7,4 @@ function Buchen() {
   )
 }
 
-export default withPage(Buchen);
+export default Buchen;

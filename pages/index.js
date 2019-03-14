@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import withPage from '../components/Page';
 import { FormattedMessage } from 'react-intl';
 
 export function Index(props) {
@@ -11,4 +10,4 @@ export function Index(props) {
   )
 }
 
-export default withPage(Index);
+export default Index;
