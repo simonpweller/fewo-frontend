@@ -14,5 +14,19 @@
   "Saturday": "Samstag",
   "Sunday": "Sonntag",
   "back": "Zurück",
-  "forward": "Weiter"
+  "forward": "Weiter",
+  "accomodation": "Unterkunft",
+  "house": "Ferienhaus",
+  "apartment": "Ferienwohnung",
+  "firstName": "Vorname",
+  "lastName": "Nachname",
+  "streetAddress": "Straße und Hausnummer",
+  "zipcode": "Postleitzahl",
+  "city": "Stadt",
+  "arrivalDate": "Ankunftstag",
+  "departureDate": "Abreisetag",
+  "phoneNumber": "Telefonnummer",
+  "email": "eMail-Adresse",
+  "comments": "Anmerkungen",
+  "requestBooking": "Buchung anfragen"
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import getConfig from 'next/config';
 import axios from 'axios';
+import { injectIntl, FormattedMessage } from 'react-intl';
 
 const { publicRuntimeConfig = {} } = getConfig() || {};
 
@@ -49,11 +50,15 @@ class BookingForm extends Component {
   }
 
   render() {
+    const { intl: { formatMessage } } = this.props;
+
     return (
       <form onSubmit={this.handleFormSubmit}>
         <div className="row">
           <div className="col-sm-6 form-group">
-            <label htmlFor="accommodation">Unterkunft</label>
+            <label htmlFor="accommodation">
+              <FormattedMessage id='accomodation' />
+            </label>
             <select
               name="accommodation"
               className="form-control"
@@ -61,14 +66,18 @@ class BookingForm extends Component {
               onChange={this.handleInputChange}
             >
               <option />
-              <option value="house">Ferienhaus</option>
-              <option value="apartment">Ferienwohnung</option>
+              <option value="house">
+                {formatMessage({ id: 'house' })}
+              </option>
+              <option value="apartment">
+                {formatMessage({ id: 'apartment' })}
+              </option>
             </select>
           </div>
         </div>
         <div className="row">
           <div className="col-sm-6 form-group">
-            <label htmlFor="guest.firstName">Vorname</label>
+            <label htmlFor="guest.firstName"><FormattedMessage id='firstName' /></label>
             <input
               name="guest.firstName"
               type="text"
@@ -78,7 +87,7 @@ class BookingForm extends Component {
             />
           </div>
           <div className="col-sm-6 form-group">
-            <label htmlFor="guest.lastName">Nachname</label>
+            <label htmlFor="guest.lastName"><FormattedMessage id='lastName' /></label>
             <input
               name="guest.lastName"
               type="text"
@@ -89,7 +98,7 @@ class BookingForm extends Component {
           </div>
         </div>
         <div className="form-group">
-          <label htmlFor="guest.streetAddress">Straße und Hausnummer</label>
+          <label htmlFor="guest.streetAddress"><FormattedMessage id='streetAddress' /></label>
           <input
             name="guest.streetAddress"
             type="text"
@@ -100,7 +109,7 @@ class BookingForm extends Component {
         </div>
         <div className="row">
           <div className="form-group col-sm-6">
-            <label htmlFor="guest.zipCode">Postleitzahl</label>
+            <label htmlFor="guest.zipCode"><FormattedMessage id='zipcode' /></label>
             <input
               name="guest.zipCode"
               type="text"
@@ -110,7 +119,7 @@ class BookingForm extends Component {
             />
           </div>
           <div className="form-group col-sm-6">
-            <label htmlFor="guest.city">Stadt</label>
+            <label htmlFor="guest.city"><FormattedMessage id='city' /></label>
             <input
               name="guest.city"
               type="text"
@@ -122,7 +131,7 @@ class BookingForm extends Component {
         </div>
         <div className="row">
           <div className="form-group col-sm-6">
-            <label htmlFor="arrivalDate">Anreisetag</label>
+            <label htmlFor="arrivalDate"><FormattedMessage id='arrivalDate' /></label>
             <input
               name="arrivalDate"
               type="date"
@@ -132,7 +141,7 @@ class BookingForm extends Component {
             />
           </div>
           <div className="form-group col-sm-6">
-            <label htmlFor="departureDate">Abreisetag</label>
+            <label htmlFor="departureDate"><FormattedMessage id='departureDate' /></label>
             <input
               name="departureDate"
               type="date"
@@ -144,7 +153,7 @@ class BookingForm extends Component {
         </div>
         <div className="row">
           <div className="form-group col-sm-6">
-            <label htmlFor="guest.phone">Telefonnummer</label>
+            <label htmlFor="guest.phone"><FormattedMessage id='phoneNumber' /></label>
             <input
               name="guest.phone"
               type="tel"
@@ -154,7 +163,7 @@ class BookingForm extends Component {
             />
           </div>
           <div className="form-group col-sm-6">
-            <label htmlFor="guest.email">eMail-Adresse</label>
+            <label htmlFor="guest.email"><FormattedMessage id='email' /></label>
             <input
               name="guest.email"
               type="email"
@@ -165,7 +174,7 @@ class BookingForm extends Component {
           </div>
         </div>
         <div className="form-group">
-          <label htmlFor="comments">Anmerkungen</label>
+          <label htmlFor="comments"><FormattedMessage id='comments' /></label>
           <textarea
             name="comments"
             className="form-control"
@@ -174,10 +183,10 @@ class BookingForm extends Component {
           />
         </div>
 
-        <button type="submit" className="btn btn-success">Buchung anfragen</button>
+        <button type="submit" className="btn btn-success"><FormattedMessage id='requestBooking' /></button>
       </form>
     )
   }
 }
 
-export default BookingForm;
+export default injectIntl(BookingForm);

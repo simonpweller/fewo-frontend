@@ -14,5 +14,19 @@
   "Saturday": "Saturday",
   "Sunday": "Sunday",
   "back": "Back",
-  "forward": "Forward"
+  "forward": "Forward",
+  "accomodation": "Accomodation",
+  "house": "House",
+  "apartment": "Apartment",
+  "firstName": "First name",
+  "lastName": "Last name",
+  "streetAddress": "Street address",
+  "zipcode": "Zipcode",
+  "city": "City",
+  "arrivalDate": "Arrival date",
+  "departureDate": "Departure date",
+  "phoneNumber": "Phone",
+  "email": "Email",
+  "comments": "Comments",
+  "requestBooking": "Request booking"
 }
