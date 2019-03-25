@@ -1,10 +1,22 @@
 import React from 'react';
+import Head from 'next/head';
 import BookingForm from '../components/BookingForm';
+import {FormattedMessage, injectIntl} from 'react-intl';
 
-function Buchen() {
+function Buchen({intl}) {
   return (
-    <BookingForm />
+    <>
+      <Head>
+        <title>
+          {intl.formatMessage({id: 'booking'})}
+        </title>
+      </Head>
+
+
+      <h1><FormattedMessage id={'booking'}/></h1>
+      <BookingForm />
+    </>
   )
 }
 
-export default Buchen;
+export default injectIntl(Buchen);

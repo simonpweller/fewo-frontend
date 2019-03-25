@@ -19,7 +19,7 @@ const initialState = {
   arrivalDate: '',
   departureDate: '',
   comments: '',
-}
+};
 
 class BookingForm extends Component {
 
@@ -32,12 +32,12 @@ class BookingForm extends Component {
       const guest = {
         ...this.state.guest,
         [guestAttribute]: value,
-      }
+      };
       this.setState({ guest });
     } else {
       this.setState({ [name]: value });
     }
-  }
+  };
 
   handleFormSubmit = async (event) => {
     event.preventDefault();
@@ -47,7 +47,7 @@ class BookingForm extends Component {
     } catch (err) {
       console.error(err);
     }
-  }
+  };
 
   render() {
     const { intl: { formatMessage } } = this.props;

@@ -1,9 +1,8 @@
 {
-  "helloWorld": "Hello World",
-  "HolidaysInHetzdorf": "Holidays in Hetzdorf",
-  "Availability": "Availability",
-  "Directions": "Directions",
-  "Booking": "Booking",
+  "holidaysInHetzdorf": "Holidays in Hetzdorf",
+  "availability": "Availability",
+  "directions": "Directions",
+  "booking": "Booking",
   "German": "Deutsch",
   "English": "English",
   "Monday": "Monday",

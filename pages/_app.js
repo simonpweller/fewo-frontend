@@ -10,10 +10,10 @@ import Layout from '../hocs/Layout';
 class MyApp extends App {
   state = {
     locale: 'de',
-  }
+  };
 
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {}
+    let pageProps = {};
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx)
@@ -29,9 +29,9 @@ class MyApp extends App {
     const messages = {
       'de': messages_de,
       'en': messages_en,
-    }
+    };
 
-    const { Component, pageProps } = this.props
+    const { Component, pageProps } = this.props;
     const { locale } = this.state;
 
     return (

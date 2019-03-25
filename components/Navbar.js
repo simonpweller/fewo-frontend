@@ -11,28 +11,42 @@ export default function Navbar({ locale, setLocale }) {
           <li>
             <Link href="/">
               <a>
-                <FormattedMessage id={'HolidaysInHetzdorf'} />
+                <FormattedMessage id={'holidaysInHetzdorf'} />
               </a>
             </Link>
           </li>
           <li>
             <Link href="/belegung">
               <a>
-                <FormattedMessage id={'Availability'} />
+                <FormattedMessage id={'availability'} />
               </a>
             </Link>
           </li>
           <li>
             <Link href="/buchen">
               <a>
-                <FormattedMessage id={'Booking'} />
+                <FormattedMessage id={'booking'} />
               </a>
             </Link>
           </li>
           <li>
             <Link href="/anfahrt">
               <a>
-                <FormattedMessage id={'Directions'} />
+                <FormattedMessage id={'directions'} />
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/ferienwohnung">
+              <a>
+                <FormattedMessage id={'apartment'} />
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="/ferienhaus">
+              <a>
+                <FormattedMessage id={'house'} />
               </a>
             </Link>
           </li>

@@ -1,13 +1,19 @@
-import Link from 'next/link';
-import { FormattedMessage } from 'react-intl';
+import React from 'react';
+import Head from 'next/head';
+import {FormattedMessage, injectIntl} from 'react-intl';
 
-export function Index(props) {
+export function Index({intl}) {
   return (
     <>
-      <FormattedMessage id={'helloWorld'} />
-      <Link prefetch href="/belegung"><a>Belegung</a></Link>
+      <Head>
+        <title>
+          {intl.formatMessage({id: 'holidaysInHetzdorf'})}
+        </title>
+      </Head>
+
+      <h1><FormattedMessage id={'holidaysInHetzdorf'}/></h1>
     </>
   )
 }
 
-export default Index;
+export default injectIntl(Index);

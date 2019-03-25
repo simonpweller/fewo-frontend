@@ -7,7 +7,7 @@ class Calendar extends React.Component {
   state = {
     year: getYear(now),
     month: getMonth(now),
-  }
+  };
 
   incrementMonth = () => {
     this.setState(state => (
@@ -20,7 +20,7 @@ class Calendar extends React.Component {
           month: state.month + 1,
         }
     ));
-  }
+  };
 
   decrementMonth = () => {
     this.setState(state => (
@@ -33,7 +33,7 @@ class Calendar extends React.Component {
           month: state.month - 1,
         }
     ));
-  }
+  };
 
   render() {
     const weekdays = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
@@ -43,13 +43,13 @@ class Calendar extends React.Component {
     const dayList = eachDay(startingDate, addWeeks(startingDate, weeksToDisplay));
 
     return <div>
-      <h1>
+      <h2>
         <FormattedDate
           value={new Date(this.state.year, this.state.month, 1)}
           year='numeric'
           month='long'
         />
-      </h1>
+      </h2>
 
       <table>
         <thead>
