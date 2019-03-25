@@ -1,98 +1,67 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Link from 'next/link';
-import { primary, textLight } from '../theme/colors';
 import { FormattedMessage } from 'react-intl';
 
 export default function Navbar({ locale, setLocale }) {
+  const [isExpanded, setExpanded] = useState(false);
+
   return (
-    <nav>
-      <div>
-        <ul>
-          <li>
+    <nav className="navbar" role="navigation" aria-label="main navigation">
+      <div className="container">
+        <div className="navbar-brand">
+
+          <a role="button" className={`navbar-burger burger ${isExpanded ? 'is-active' : ''}`.trim()} aria-label="menu" aria-expanded="false"
+             data-target="mainNav" onClick={() => setExpanded(!isExpanded)}>
+            <span aria-hidden="true"/>
+            <span aria-hidden="true"/>
+            <span aria-hidden="true"/>
+          </a>
+        </div>
+
+        <div id="mainNav" className={`navbar-menu ${isExpanded ? 'is-active' : ''}`.trim()}>
+          <div className="navbar-start">
             <Link href="/">
-              <a>
+              <a className="navbar-item">
                 <FormattedMessage id={'holidaysInHetzdorf'} />
               </a>
             </Link>
-          </li>
-          <li>
+
             <Link href="/belegung">
-              <a>
+              <a className="navbar-item">
                 <FormattedMessage id={'availability'} />
               </a>
             </Link>
-          </li>
-          <li>
+
             <Link href="/buchen">
-              <a>
+              <a className="navbar-item">
                 <FormattedMessage id={'booking'} />
               </a>
             </Link>
-          </li>
-          <li>
+
             <Link href="/anfahrt">
-              <a>
+              <a className="navbar-item">
                 <FormattedMessage id={'directions'} />
               </a>
             </Link>
-          </li>
-          <li>
+
             <Link href="/ferienwohnung">
-              <a>
+              <a className="navbar-item">
                 <FormattedMessage id={'apartment'} />
               </a>
             </Link>
-          </li>
-          <li>
+
             <Link href="/ferienhaus">
-              <a>
+              <a className="navbar-item">
                 <FormattedMessage id={'house'} />
               </a>
             </Link>
-          </li>
-        </ul>
-        {
-          <button onClick={() => setLocale(locale === 'de' ? 'en' : 'de')}>
-            <FormattedMessage id={`${locale === 'de' ? 'English' : 'German'}`} />
-          </button>
-        }
+
+            <button onClick={() => setLocale(locale === 'de' ? 'en' : 'de')}>
+              <FormattedMessage id={`${locale === 'de' ? 'English' : 'German'}`} />
+            </button>
+          </div>
+        </div>
       </div>
-      <style jsx>
-        {`
-          nav {
-            background-color: ${primary};
-            color: ${textLight};
-            height: 50px;
-          }
-          div {
-            max-width: 960px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-          }
-          ul {
-            margin: auto 0;
-            padding: 0;
-            display: flex;
-            list-style: none;
-          }
-          li {
-            padding: 0 15px;
-          }
-          li:first-child {
-            padding-left: 0;
-          }
-          li:last-child {
-            padding-right: 0;
-          }
-          a {
-            color: inherit;
-            text-decoration: none;
-            line-height: 50px;
-          }
-        `}
-      </style>
     </nav>
   )
 }

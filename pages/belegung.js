@@ -6,7 +6,6 @@ import { isSameDay } from 'date-fns';
 import Calendar from '../components/Calendar';
 import Spinner from '../components/Spinner';
 
-import { primary } from '../theme/colors';
 import {FormattedMessage, injectIntl} from 'react-intl';
 
 const { publicRuntimeConfig = {} } = getConfig() || {};
@@ -41,7 +40,7 @@ export class Belegung extends Component {
         <h1><FormattedMessage id={'availability'}/></h1>
         {bookedDates
           ? <Calendar hasDateBooking={this.hasDateBooking} />
-          : <Spinner color={primary} />}
+          : <Spinner color={'green'} />}
       </>
     )
   }
