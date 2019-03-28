@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Spinner({ color = 'red' }) {
+export default function Spinner({ color = '#052C14' }) {
   return (
     <div className="lds-dual-ring">
       <style jsx>

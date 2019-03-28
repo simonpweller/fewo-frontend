@@ -1,0 +1,64 @@
+@import 'variables';
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  @media #{$screen-large} {
+    flex-direction: row;
+  }
+  align-items: flex-start;
+
+  padding: $spacing;
+  background-color: $primary;
+  color: $primary-text;
+}
+
+.navItems {
+  display: none;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @media #{$screen-large} {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.navItemsExpanded {
+  composes: navItems;
+  display: flex;
+}
+
+.navLink {
+  display: inline-block;
+  padding: $spacing;
+  color: inherit;
+  text-decoration: none;
+}
+
+.toggle {
+  composes: navLink;
+  position: absolute;
+  align-self: flex-end;
+  cursor: pointer;
+  @media #{$screen-large} {
+    display: none;
+  }
+}
+
+.languageToggle {
+  margin: $spacing;
+  display: none;
+  @media #{$screen-large} {
+    align-self: center;
+    margin: 0 $spacing;
+    display: block;
+  }
+}
+
+.languageToggleExpanded {
+  composes: languageToggle;
+  display: block;
+}

@@ -6,4 +6,5 @@ module.exports = withSass({
   publicRuntimeConfig: {
     apiUrl: process.env.API_URL || 'http://localhost:8081',
   },
+  cssModules: true
 });

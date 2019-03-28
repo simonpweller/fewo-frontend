@@ -1,67 +1,66 @@
 import React, {useState} from 'react'
 import Link from 'next/link';
 import { FormattedMessage } from 'react-intl';
+import classes from '../styles/navbar.scss';
 
 export default function Navbar({ locale, setLocale }) {
   const [isExpanded, setExpanded] = useState(false);
 
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
-      <div className="container">
-        <div className="navbar-brand">
-
-          <a role="button" className={`navbar-burger burger ${isExpanded ? 'is-active' : ''}`.trim()} aria-label="menu" aria-expanded="false"
-             data-target="mainNav" onClick={() => setExpanded(!isExpanded)}>
-            <span aria-hidden="true"/>
-            <span aria-hidden="true"/>
-            <span aria-hidden="true"/>
-          </a>
-        </div>
-
-        <div id="mainNav" className={`navbar-menu ${isExpanded ? 'is-active' : ''}`.trim()}>
-          <div className="navbar-start">
-            <Link href="/">
-              <a className="navbar-item">
-                <FormattedMessage id={'holidaysInHetzdorf'} />
-              </a>
-            </Link>
-
+    <div className={classes.navbar}>
+      <div>
+        <Link href="/">
+          <a className={classes.navLink}><FormattedMessage id={'holidaysInHetzdorf'} /></a>
+        </Link>
+      </div>
+      <div className={classes.toggle} onClick={() => setExpanded(!isExpanded)}>
+        Toggle
+      </div>
+      <nav>
+        <ul className={isExpanded ? classes.navItemsExpanded : classes.navItems}>
+          <li>
             <Link href="/belegung">
-              <a className="navbar-item">
+              <a className={classes.navLink}>
                 <FormattedMessage id={'availability'} />
               </a>
             </Link>
-
+          </li>
+          <li>
             <Link href="/buchen">
-              <a className="navbar-item">
+              <a className={classes.navLink}>
                 <FormattedMessage id={'booking'} />
               </a>
             </Link>
-
+          </li>
+          <li>
             <Link href="/anfahrt">
-              <a className="navbar-item">
+              <a className={classes.navLink}>
                 <FormattedMessage id={'directions'} />
               </a>
             </Link>
-
+          </li>
+          <li>
             <Link href="/ferienwohnung">
-              <a className="navbar-item">
+              <a className={classes.navLink}>
                 <FormattedMessage id={'apartment'} />
               </a>
             </Link>
-
+          </li>
+          <li>
             <Link href="/ferienhaus">
-              <a className="navbar-item">
+              <a className={classes.navLink}>
                 <FormattedMessage id={'house'} />
               </a>
             </Link>
-
-            <button onClick={() => setLocale(locale === 'de' ? 'en' : 'de')}>
-              <FormattedMessage id={`${locale === 'de' ? 'English' : 'German'}`} />
-            </button>
-          </div>
-        </div>
-      </div>
-    </nav>
+          </li>
+        </ul>
+      </nav>
+      <button
+        className={isExpanded ? classes.languageToggleExpanded : classes.languageToggle}
+        onClick={() => setLocale(locale === 'de' ? 'en' : 'de')}
+      >
+        <FormattedMessage id={`${locale === 'de' ? 'English' : 'German'}`} />
+      </button>
+    </div>
   )
 }
