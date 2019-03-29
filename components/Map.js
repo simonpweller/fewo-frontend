@@ -2,6 +2,7 @@ import React from 'react'
 import Head from 'next/head';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import L from 'leaflet';
+import {FormattedMessage} from 'react-intl';
 
 export default function MapComponent() {
 
@@ -28,10 +29,22 @@ export default function MapComponent() {
           attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
         />
         <Marker position={positionApartment}>
-          <Popup>Ferienwohnung</Popup>
+          <Popup>
+            <FormattedMessage id={'apartment'}/>
+            <br/>
+            <a href="https://www.google.com/maps/dir//Ferienwohnung+Bernd+Böhme,+Zum+Waldblick+42A,+09633+Halsbrücke+OT+Hetzdorf">
+              <FormattedMessage id={'planRoute'}/>
+            </a>
+          </Popup>
         </Marker>
         <Marker position={positionHouse}>
-          <Popup>Ferienhaus</Popup>
+          <Popup>
+            <FormattedMessage id={'house'}/>
+            <br/>
+            <a href="https://www.google.com/maps/dir//Ferienhaus+B%C3%B6hme+Gisela/@50.9711286,13.4552377,18">
+              <FormattedMessage id={'planRoute'}/>
+            </a>
+          </Popup>
         </Marker>
       </Map>
     </>

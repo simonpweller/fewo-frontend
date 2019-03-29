@@ -3,7 +3,13 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import {FormattedMessage, injectIntl} from 'react-intl';
 
-const ClientSideMap = dynamic(() => import('../components/Map'), { ssr: false });
+const ClientSideMap = dynamic(
+  () => import('../components/Map'),
+  {
+    ssr: false,
+    loading: () => <FormattedMessage id={'loading'}/>
+  }
+);
 
 export function Anfahrt({intl}) {
   return (

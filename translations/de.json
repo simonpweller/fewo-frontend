@@ -14,6 +14,7 @@
   "Sunday": "Sonntag",
   "back": "Zurück",
   "forward": "Weiter",
+  "loading": "Wird geladen...",
   "accomodation": "Unterkunft",
   "house": "Ferienhaus",
   "apartment": "Ferienwohnung",
@@ -58,5 +59,6 @@
   "house.pricing.additionalNights": "jede, weitere Person 15 Euro",
   "house.pricing.children": "Kinder, bis 12 Jahre 5 Euro",
   "house.pricing.sheetsIncluded": "inkl., Bettwäsche, Handtücher, Nebenkosten",
-  "house.pricing.twoNights": "Preis, für 2 Übernachtungen nach Vereinbarung"
+  "house.pricing.twoNights": "Preis, für 2 Übernachtungen nach Vereinbarung",
+  "planRoute": "Route planen mit Google Maps"
 }
