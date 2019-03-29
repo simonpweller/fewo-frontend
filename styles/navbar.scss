@@ -1,6 +1,16 @@
 @import 'variables';
+@import "styles";
 
 .navbar {
+  background-color: $primary;
+  color: $primary-text;
+}
+
+.container {
+  @extend .container;
+}
+
+.innerWrapper {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -9,9 +19,8 @@
   }
   align-items: flex-start;
 
-  padding: $spacing;
-  background-color: $primary;
-  color: $primary-text;
+  margin: 0 (-$spacing);
+  padding: $spacing 0;
 }
 
 .navItems {
@@ -40,6 +49,7 @@
 
 .toggle {
   composes: navLink;
+  padding: 0 $spacing;
   position: absolute;
   align-self: flex-end;
   cursor: pointer;
@@ -47,6 +57,32 @@
     display: none;
   }
 }
+
+.bar {
+  width: 35px;
+  height: 5px;
+  background-color: $primary-text;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.toggledBar1 {
+  composes: bar;
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+
+.toggledBar2 {
+  composes: bar;
+  opacity: 0;
+}
+
+.toggledBar3 {
+  composes: bar;
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
 
 .languageToggle {
   margin: $spacing;
