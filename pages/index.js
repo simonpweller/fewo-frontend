@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import {FormattedMessage, injectIntl} from 'react-intl';
+import IndexGallery from '../components/IndexGallery';
 
 export function Index({intl}) {
   return (
@@ -15,6 +16,8 @@ export function Index({intl}) {
       <p>
         Herzlich willkommen zwischen Dresden und Erzgebirge – mitten in Sachsen!
       </p>
+
+      <IndexGallery/>
       <p>
         Wir freuen uns über Ihr Interesse an unserem traditionellen Urlaubs- und
         Erholungsgebiet Tharandter Wald. Im "Schönsten Wald Sachsens" und seinen
