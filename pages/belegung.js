@@ -15,11 +15,20 @@ export class Belegung extends Component {
     bookedDates: null,
   };
 
-  async componentDidMount() {
-    const res = await axios.get(`${publicRuntimeConfig.apiUrl}/booked-dates`);
-    this.setState({
-      bookedDates: res.data,
-    });
+  componentDidMount() {
+    axios.get(`${publicRuntimeConfig.apiUrl}/booked-dates`)
+      .then(res => {
+        this.setState({
+          bookedDates: res.data,
+        });
+      })
+      .catch(err => {
+        // TODO: Inform the user the fetch failed
+        console.error(err);
+        this.setState({
+          bookedDates: [],
+        })
+      });
   }
 
   hasDateBooking = date => {
