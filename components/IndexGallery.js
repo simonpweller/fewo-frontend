@@ -4,16 +4,16 @@ import ImageGallery from 'react-image-gallery';
 const IndexGallery = () => {
   const images = [
     {
-      original: '/static/images/20180402_141032.jpg',
-      thumbnail: '/static/images/20180402_141032.jpg',
+      original: require('../images/1.jpg?resize&size=960'),
+      thumbnail: require('../images/1.jpg?resize&size=100'),
     },
     {
-      original: '/static/images/20180407_172659.jpg',
-      thumbnail: '/static/images/20180407_172659.jpg',
+      original: require('../images/2.jpg?resize&size=960'),
+      thumbnail: require('../images/2.jpg?resize&size=100'),
     },
     {
-      original: '/static/images/IMG_6680.JPG',
-      thumbnail: '/static/images/IMG_6680.JPG',
+      original: require('../images/3.jpg?resize&size=960'),
+      thumbnail: require('../images/3.jpg?resize&size=100'),
     }
   ];
 

@@ -1,9 +1,24 @@
-const withSass = require('@zeit/next-sass');
+const withPlugins = require('next-compose-plugins');
+const sass = require('@zeit/next-sass');
+const optimizedImages = require('next-optimized-images');
 
-module.exports = withSass({
-  serverRuntimeConfig: {
-  },
-  publicRuntimeConfig: {
-    apiUrl: process.env.API_URL || 'http://localhost:8081',
-  },
-});
+module.exports = withPlugins(
+  [
+    [
+      optimizedImages, {
+        optimizeImagesInDev: true,
+        mozjpeg: {
+          quality: 80,
+        },
+    }
+    ],
+    sass,
+  ],
+  {
+    serverRuntimeConfig: {
+    },
+    publicRuntimeConfig: {
+      apiUrl: process.env.API_URL || 'http://localhost:8081',
+    },
+  }
+);
