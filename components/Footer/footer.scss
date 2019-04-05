@@ -4,10 +4,7 @@
 .footer {
   background-color: $primary-light;
   color: $primary-text;
-  position: absolute;
-  bottom: 0;
   width: 100%;
-  height: $footer-height;
   display: flex;
 
   &__container {
