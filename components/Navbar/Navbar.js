@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import Link from 'next/link';
 import {FormattedMessage} from 'react-intl';
+import English from '../flags/English';
+import German from '../flags/German';
 
 export default function Navbar({locale, setLocale}) {
   const [isExpanded, setExpanded] = useState(false);
@@ -60,7 +62,10 @@ export default function Navbar({locale, setLocale}) {
             className={`navbar__languageToggle ${isExpanded ? 'navbar__languageToggle--expanded' : ''}`}
             onClick={() => setLocale(locale === 'de' ? 'en' : 'de')}
           >
-            <FormattedMessage id={`${locale === 'de' ? 'English' : 'German'}`}/>
+            {locale === 'de'
+              ? <English />
+              : <German />
+            }
           </button>
         </div>
       </div>

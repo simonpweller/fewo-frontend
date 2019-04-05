@@ -63,15 +63,23 @@
   }
 
   &__languageToggle {
-    margin: $spacing;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0 $spacing;
+    cursor: pointer;
+
     display: none;
     @media #{$screen-large} {
       align-self: center;
-      margin: 0 $spacing;
-      display: block;
+      display: flex;
     }
     &--expanded {
-      display: block;
+      display: flex;
+    }
+
+    svg {
+      width: 30px;
     }
   }
 }
