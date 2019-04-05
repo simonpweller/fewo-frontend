@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import {FormattedMessage, injectIntl} from 'react-intl';
 import Banner from '../components/Banner/Banner';
+import Accommodations from '../components/Accommodations/Accommodations';
 
 export function Index({intl}) {
   return (
@@ -16,6 +17,9 @@ export function Index({intl}) {
 
       <div className="container">
         <h2><FormattedMessage id={'accommodationsInHetzdorf'}/></h2>
+
+        <Accommodations />
+
         <p>
           Herzlich willkommen zwischen Dresden und Erzgebirge – mitten in Sachsen!
         </p>
