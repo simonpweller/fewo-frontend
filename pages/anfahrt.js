@@ -13,7 +13,7 @@ const ClientSideMap = dynamic(
 
 export function Anfahrt({intl}) {
   return (
-    <>
+    <div className="container">
       <Head>
         <title>
           {intl.formatMessage({id: 'directions'})}
@@ -22,7 +22,7 @@ export function Anfahrt({intl}) {
 
       <h1><FormattedMessage id={'directions'}/></h1>
       <ClientSideMap />
-    </>
+    </div>
   )
 }
 

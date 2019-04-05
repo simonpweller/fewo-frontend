@@ -5,7 +5,7 @@ import Address from '../components/Address';
 
 const Datenschutz = ({intl}) => {
   return (
-    <>
+    <div className="container">
       <Head>
         <title>
           {intl.formatMessage({id: 'privacy'})}
@@ -253,7 +253,7 @@ const Datenschutz = ({intl}) => {
         <a href="https://datenschutz-generator.de/">Erstellt mit Datenschutz-Generator.de von RA Dr. Thomas
           Schwenke</a>
       </p>
-    </>
+    </div>
   );
 };
 

@@ -14,7 +14,7 @@ export default function Layout({ locale, setLocale, children }) {
       </Head>
 
       <Navbar locale={locale} setLocale={setLocale} />
-      <main className="container">
+      <main>
         {children}
       </main>
       <Footer/>

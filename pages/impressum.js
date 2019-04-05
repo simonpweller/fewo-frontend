@@ -5,7 +5,7 @@ import Address from '../components/Address';
 
 const Impressum = ({intl}) => {
   return (
-    <>
+    <div className="container">
       <Head>
         <title>
           {intl.formatMessage({id: 'imprint'})}
@@ -20,7 +20,7 @@ const Impressum = ({intl}) => {
         <FormattedMessage id={'address.contact'}/>
       </h2>
       <Address/>
-    </>
+    </div>
   );
 };
 

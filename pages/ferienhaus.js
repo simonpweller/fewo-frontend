@@ -5,7 +5,7 @@ import {FormattedHTMLMessage, FormattedMessage, injectIntl} from 'react-intl';
 
 const Ferienhaus = ({intl}) => {
   return (
-    <>
+    <div className="container">
       <Head>
         <title>
           {intl.formatMessage({id: 'house'})}
@@ -33,7 +33,7 @@ const Ferienhaus = ({intl}) => {
         <li><FormattedMessage id={'house.pricing.sheetsIncluded'} /></li>
         <li><FormattedMessage id={'house.pricing.twoNights'} /></li>
       </ul>
-    </>
+    </div>
   );
 };
 

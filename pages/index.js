@@ -5,7 +5,7 @@ import IndexGallery from '../components/IndexGallery';
 
 export function Index({intl}) {
   return (
-    <>
+    <div className="container">
       <Head>
         <title>
           {intl.formatMessage({id: 'holidaysInHetzdorf'})}
@@ -51,7 +51,7 @@ export function Index({intl}) {
           Osterzgebirge und vieles mehr werden Ihnen unvergesslich bleiben
         </li>
       </ul>
-    </>
+    </div>
   )
 }
 

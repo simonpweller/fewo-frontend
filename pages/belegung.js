@@ -40,7 +40,7 @@ export class Belegung extends Component {
     const { bookedDates } = this.state;
     const { intl } = this.props;
     return (
-      <>
+      <div className="container">
         <Head>
           <title>
             {intl.formatMessage({id: 'availability'})}
@@ -50,7 +50,7 @@ export class Belegung extends Component {
         {bookedDates
           ? <Calendar hasDateBooking={this.hasDateBooking} />
           : <Spinner color={'green'} />}
-      </>
+      </div>
     )
   }
 }
