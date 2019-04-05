@@ -8,7 +8,7 @@
   display: flex;
 
   &__container {
-    flex: 1;
+    width: 100%;
     @extend %container;
   }
 

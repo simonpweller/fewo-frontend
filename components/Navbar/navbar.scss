@@ -68,6 +68,7 @@
     padding: 0;
     margin: 0 $spacing;
     cursor: pointer;
+    height: 20px;
 
     display: none;
     @media #{$screen-large} {
