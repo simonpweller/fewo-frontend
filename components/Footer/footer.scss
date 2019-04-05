@@ -1,0 +1,29 @@
+@import '../../styles/variables';
+@import '../../styles/navigation';
+
+.footer {
+  background-color: $primary-light;
+  color: $primary-text;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: $footer-height;
+  display: flex;
+
+  &__container {
+    flex: 1;
+    @extend %container;
+  }
+
+  &__innerWrapper {
+    @extend %innerWrapper;
+  }
+
+  &__linkList {
+    @extend %linkList;
+  }
+
+  &__link {
+    @extend %link;
+  }
+}

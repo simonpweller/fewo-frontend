@@ -1,0 +1,32 @@
+@import "variables";
+
+%container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: $spacing;
+}
+
+%innerWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  @media #{$screen-large} {
+    flex-direction: row;
+  }
+  align-items: flex-start;
+
+  margin: 0 (-$spacing);
+}
+
+%linkList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+%link {
+  display: inline-block;
+  padding: $spacing;
+  color: inherit;
+  text-decoration: none;
+}

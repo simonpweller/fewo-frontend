@@ -1,7 +1,9 @@
 $primary: #052C14;
+$primary-light: rgba($primary, 0.9);
 $primary-text: white;
 $spacing: 10px;
 
 $screen-large: "only screen and (min-width : 768px)";
 
 $container-width: 960px;
+$footer-height: $spacing * 6;
