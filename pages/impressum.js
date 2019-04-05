@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import {FormattedMessage, injectIntl} from 'react-intl';
+import Address from '../components/Address';
 
 const Impressum = ({intl}) => {
   return (
@@ -14,6 +15,11 @@ const Impressum = ({intl}) => {
       <h1>
         <FormattedMessage id={'imprint'}/>
       </h1>
+
+      <h2>
+        <FormattedMessage id={'address.contact'}/>
+      </h2>
+      <Address/>
     </>
   );
 };

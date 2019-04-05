@@ -18,6 +18,7 @@
 
   &__linkList {
     @extend %linkList;
+    display: flex;
   }
 
   &__link {

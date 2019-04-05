@@ -15,6 +15,13 @@ const Footer = () => {
                 </a>
               </Link>
             </li>
+            <li>
+              <Link href="/datenschutz">
+                <a className={'footer__link'}>
+                  <FormattedMessage id={'privacy'}/>
+                </a>
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
