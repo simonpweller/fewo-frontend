@@ -36,7 +36,7 @@ class MyApp extends App {
 
     return (
       <Container>
-        <IntlProvider locale={locale} messages={messages[locale]}>
+        <IntlProvider locale={locale} messages={messages[locale]} textComponent={React.Fragment}>
           <Layout locale={locale} setLocale={(locale) => this.setState({ locale })}>
             <Component {...pageProps} />
           </Layout>
