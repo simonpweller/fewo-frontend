@@ -6,6 +6,7 @@ import locale_de from 'react-intl/locale-data/de';
 import messages_de from '../translations/de.json';
 import messages_en from '../translations/en.json';
 import Layout from '../hocs/Layout';
+import '../styles/global.scss';
 
 class MyApp extends App {
   state = {

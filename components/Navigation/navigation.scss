@@ -1,4 +1,4 @@
-@import "variables";
+@import "../../styles/variables";
 
 %container {
   max-width: $container-width;
@@ -6,7 +6,7 @@
   padding: $spacing;
 }
 
-%innerWrapper {
+.innerWrapper {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -18,13 +18,13 @@
   margin: 0 (-$spacing);
 }
 
-%linkList {
+.linkList {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-%link {
+.link {
   display: inline-block;
   padding: $spacing;
   color: inherit;

@@ -6,19 +6,20 @@
   position: relative;
   display: flex;
   align-items: center;
+}
 
-  &__img {
-    top: 0;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    position: absolute;
-    z-index: -1;
-  }
+.img {
+  top: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: -1;
+}
 
-  &__text {
-    font-weight: bold;
-    font-size: 200%;
-    color: $primary-text;
-  }
+.text {
+  composes: container from global;
+  font-weight: bold;
+  font-size: 200%;
+  color: $primary-text;
 }

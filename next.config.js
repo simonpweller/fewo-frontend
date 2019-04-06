@@ -12,7 +12,11 @@ module.exports = withPlugins(
         },
       },
     ],
-    sass,
+    [
+      sass, {
+        cssModules: true,
+      }
+    ],
   ],
   {
     serverRuntimeConfig: {

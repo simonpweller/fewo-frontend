@@ -1,9 +1,10 @@
 import React from 'react';
 import {FormattedMessage} from 'react-intl';
+import css from './accommodations.scss';
 
 const Accommodations = () => {
   return (
-    <div className="accommodations">
+    <div className={css.accommodations}>
       <div className="tile">
 
         <h3>

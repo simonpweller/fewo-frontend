@@ -1,0 +1,92 @@
+@import '../../../styles/variables';
+@import '../navigation';
+
+.navbar {
+  background-color: $primary;
+  color: $primary-text;
+}
+
+.container {
+  composes: container from global;
+}
+
+.innerWrapper {
+  composes: innerWrapper from '../navigation.scss';
+}
+
+.navLink {
+  composes: link from '../navigation.scss';
+}
+
+.navItems {
+  composes: linkList from '../navigation.scss';
+  display: none;
+  flex-direction: column;
+  @media #{$screen-large} {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+.navItemsExpanded {
+  composes: navItems;
+  display: flex;
+}
+
+.toggle {
+  padding: 0 $spacing;
+  position: absolute;
+  align-self: flex-end;
+  cursor: pointer;
+  @media #{$screen-large} {
+    display: none;
+  }
+}
+
+.bar {
+  width: 35px;
+  height: 5px;
+  background-color: $primary-text;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.bar1Expanded {
+  composes: bar;
+  -webkit-transform: rotate(-45deg) translate(-9px, 6px) ;
+  transform: rotate(-45deg) translate(-9px, 6px) ;
+}
+.bar2Expanded {
+  composes: bar;
+  opacity: 0;
+}
+
+.bar3Expanded {
+  composes: bar;
+  -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+  transform: rotate(45deg) translate(-8px, -8px) ;
+}
+
+.languageToggle {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0 $spacing;
+  cursor: pointer;
+  height: 20px;
+
+  display: none;
+  @media #{$screen-large} {
+    align-self: center;
+    display: flex;
+  }
+
+  svg {
+    width: 30px;
+  }
+}
+
+.languageToggleExpanded {
+  composes: languageToggle;
+  display: flex;
+}

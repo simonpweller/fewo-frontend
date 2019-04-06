@@ -1,23 +1,24 @@
 import React from 'react';
 import Link from 'next/link';
 import {FormattedMessage} from 'react-intl';
+import css from './footer.scss';
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className={'footer__container'}>
-        <div className={'footer__innerWrapper'}>
-          <ul className={'footer__linkList'}>
+    <footer className={css.footer}>
+      <div className={css.container}>
+        <div className={css.innerWrapper}>
+          <ul className={css.linkList}>
             <li>
               <Link href="/impressum">
-                <a className={'footer__link'}>
+                <a className={css.link}>
                   <FormattedMessage id={'imprint'}/>
                 </a>
               </Link>
             </li>
             <li>
               <Link href="/datenschutz">
-                <a className={'footer__link'}>
+                <a className={css.link}>
                   <FormattedMessage id={'privacy'}/>
                 </a>
               </Link>

@@ -1,0 +1,25 @@
+@import '../../../styles/variables';
+
+.footer {
+  background-color: $primary;
+  color: $primary-text;
+  width: 100%;
+  display: flex;
+}
+
+.container {
+  composes: container from global;
+}
+
+.innerWrapper {
+  composes: innerWrapper from '../navigation.scss';
+}
+
+.linkList {
+  composes: linkList from '../navigation.scss';
+  display: flex;
+}
+
+.link {
+  composes: link from '../navigation.scss';
+}
