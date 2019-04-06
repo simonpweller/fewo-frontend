@@ -1,5 +1,21 @@
+@import '../../styles/variables';
+
 .accommodations {
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.tile {
+  border: 2px solid rgba($primary, 0.3);
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
+
+.title {
+  margin: $spacing;
 }
