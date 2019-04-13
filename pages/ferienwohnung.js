@@ -12,7 +12,7 @@ const Ferienwohnung = ({intl}) => {
       </Head>
 
       <h1><FormattedMessage id={'apartment'} /></h1>
-      <p><FormattedHTMLMessage id={'apartment.description'} /></p>
+      <p><FormattedHTMLMessage id={'apartment.description'} tagName={'span'}/></p>
       <h2><FormattedMessage id={'object.features'} /></h2>
       <ul>
         <li><FormattedMessage id={'apartment.feature.livingroom'} /></li>

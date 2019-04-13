@@ -3,19 +3,49 @@
 .accommodations {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 .tile {
-  border: 2px solid rgba($primary, 0.3);
-  display: flex;
-  flex-direction: column;
-  img {
-    width: 100%;
-    object-fit: cover;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    .overlay {
+      height: 82px;
+    }
   }
+}
+
+.img {
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  color: $primary-text;
+  background-color: $primary;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  @media(max-width: 756px) {
+    height: 82px;
+  }
+
+  transition: .5s ease;
 }
 
 .title {
   margin: $spacing;
+}
+
+.subtitle {
+  margin: $spacing;
+  display: flex;
+  justify-content: space-between;
 }

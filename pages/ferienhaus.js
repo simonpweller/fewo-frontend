@@ -13,7 +13,7 @@ const Ferienhaus = ({intl}) => {
       </Head>
 
       <h1><FormattedMessage id={'house'} /></h1>
-      <p><FormattedHTMLMessage id={'house.description'} /></p>
+      <p><FormattedHTMLMessage id={'house.description'} tagName={'span'}/></p>
       <h2><FormattedMessage id={'object.features'} /></h2>
       <ul>
         <li><FormattedMessage id={'house.feature.bedrooms'} /></li>
