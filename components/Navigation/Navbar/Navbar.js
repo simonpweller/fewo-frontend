@@ -1,11 +1,11 @@
 import React, {useState} from 'react'
 import Link from 'next/link';
-import {FormattedMessage} from 'react-intl';
+import {FormattedMessage, injectIntl} from 'react-intl';
 import English from './flags/English';
 import German from './flags/German';
 import css from './navbar.scss';
 
-export default function Navbar({locale, setLocale}) {
+function Navbar({locale, setLocale, intl}) {
   const [isExpanded, setExpanded] = useState(false);
 
   return (
@@ -60,8 +60,14 @@ export default function Navbar({locale, setLocale}) {
             </ul>
           </nav>
           <button
+            lang={locale === 'de' ? 'en': 'de'}
             className={isExpanded ? css.languageToggleExpanded : css.languageToggle}
-            onClick={() => setLocale(locale === 'de' ? 'en' : 'de')}
+            onClick={() => {
+              const nextLang = locale === 'de' ? 'en' : 'de';
+              setLocale(nextLang);
+              document.querySelector('html').setAttribute('lang', nextLang);
+            }}
+            aria-label={intl.formatMessage({id: 'languageToggle'})}
           >
             {locale === 'de'
               ? <English />
@@ -73,3 +79,5 @@ export default function Navbar({locale, setLocale}) {
     </div>
   )
 }
+
+export default injectIntl(Navbar);
