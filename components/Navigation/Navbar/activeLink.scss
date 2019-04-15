@@ -1,0 +1,8 @@
+.navLink {
+  composes: link from '../navigation.scss';
+}
+
+.activeLink {
+  composes: navLink;
+  font-weight: bold;
+}

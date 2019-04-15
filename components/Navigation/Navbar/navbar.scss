@@ -14,10 +14,6 @@
   composes: innerWrapper from '../navigation.scss';
 }
 
-.navLink {
-  composes: link from '../navigation.scss';
-}
-
 .navItems {
   composes: linkList from '../navigation.scss';
   display: none;

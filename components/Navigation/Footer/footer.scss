@@ -19,7 +19,3 @@
   composes: linkList from '../navigation.scss';
   display: flex;
 }
-
-.link {
-  composes: link from '../navigation.scss';
-}

@@ -1,7 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
 import {FormattedMessage} from 'react-intl';
 import css from './footer.scss';
+import ActiveLink from '../Navbar/ActiveLink';
 
 const Footer = () => {
   return (
@@ -10,18 +10,14 @@ const Footer = () => {
         <div className={css.innerWrapper}>
           <ul className={css.linkList}>
             <li>
-              <Link href="/impressum">
-                <a className={css.link}>
-                  <FormattedMessage id={'imprint'}/>
-                </a>
-              </Link>
+              <ActiveLink href={'/impressum'}>
+                <FormattedMessage id={'imprint'}/>
+              </ActiveLink>
             </li>
             <li>
-              <Link href="/datenschutz">
-                <a className={css.link}>
-                  <FormattedMessage id={'privacy'}/>
-                </a>
-              </Link>
+              <ActiveLink href={'/datenschutz'}>
+                <FormattedMessage id={'privacy'}/>
+              </ActiveLink>
             </li>
           </ul>
         </div>

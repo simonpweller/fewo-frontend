@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
-import Link from 'next/link';
 import {FormattedMessage, injectIntl} from 'react-intl';
 import English from './flags/English';
 import German from './flags/German';
 import css from './navbar.scss';
+import ActiveLink from './ActiveLink';
 
 function Navbar({locale, setLocale, intl}) {
   const [isExpanded, setExpanded] = useState(false);
@@ -12,9 +12,9 @@ function Navbar({locale, setLocale, intl}) {
     <div className={css.navbar}>
       <div className={css.container}>
         <div className={css.innerWrapper}>
-          <Link href="/">
-            <a className={css.navLink}><FormattedMessage id={'holidaysInHetzdorf'}/></a>
-          </Link>
+          <ActiveLink href={'/'}>
+            <FormattedMessage id={'holidaysInHetzdorf'}/>
+          </ActiveLink>
           <button className={css.toggle} onClick={() => setExpanded(!isExpanded)}>
             <div className={isExpanded ? css.bar1Expanded : css.bar}/>
             <div className={isExpanded ? css.bar2Expanded : css.bar}/>
@@ -23,39 +23,29 @@ function Navbar({locale, setLocale, intl}) {
           <nav>
             <ul className={isExpanded ? css.navItemsExpanded : css.navItems}>
               <li>
-                <Link href="/belegung">
-                  <a className={css.navLink}>
-                    <FormattedMessage id={'availability'}/>
-                  </a>
-                </Link>
+                <ActiveLink href={'/belegung'}>
+                  <FormattedMessage id={'availability'}/>
+                </ActiveLink>
               </li>
               <li>
-                <Link href="/buchen">
-                  <a className={css.navLink}>
-                    <FormattedMessage id={'booking'}/>
-                  </a>
-                </Link>
+                <ActiveLink href={'/buchen'}>
+                  <FormattedMessage id={'booking'}/>
+                </ActiveLink>
               </li>
               <li>
-                <Link href="/anfahrt">
-                  <a className={css.navLink}>
-                    <FormattedMessage id={'directions'}/>
-                  </a>
-                </Link>
+                <ActiveLink href={'/anfahrt'}>
+                  <FormattedMessage id={'directions'}/>
+                </ActiveLink>
               </li>
               <li>
-                <Link href="/ferienwohnung">
-                  <a className={css.navLink}>
-                    <FormattedMessage id={'apartment'}/>
-                  </a>
-                </Link>
+                <ActiveLink href={'/ferienwohnung'}>
+                  <FormattedMessage id={'apartment'}/>
+                </ActiveLink>
               </li>
               <li>
-                <Link href="/ferienhaus">
-                  <a className={css.navLink}>
-                    <FormattedMessage id={'house'}/>
-                  </a>
-                </Link>
+                <ActiveLink href={'/ferienhaus'}>
+                  <FormattedMessage id={'house'}/>
+                </ActiveLink>
               </li>
             </ul>
           </nav>
