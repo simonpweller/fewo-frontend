@@ -15,11 +15,11 @@ function Navbar({locale, setLocale, intl}) {
           <Link href="/">
             <a className={css.navLink}><FormattedMessage id={'holidaysInHetzdorf'}/></a>
           </Link>
-          <div className={css.toggle} onClick={() => setExpanded(!isExpanded)}>
+          <button className={css.toggle} onClick={() => setExpanded(!isExpanded)}>
             <div className={isExpanded ? css.bar1Expanded : css.bar}/>
             <div className={isExpanded ? css.bar2Expanded : css.bar}/>
             <div className={isExpanded ? css.bar3Expanded : css.bar}/>
-          </div>
+          </button>
           <nav>
             <ul className={isExpanded ? css.navItemsExpanded : css.navItems}>
               <li>
