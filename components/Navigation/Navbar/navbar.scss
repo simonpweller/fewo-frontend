@@ -12,6 +12,7 @@
 
 .innerWrapper {
   composes: innerWrapper from '../navigation.scss';
+  position: relative;
 }
 
 .navItems {
@@ -30,11 +31,12 @@
 }
 
 .toggle {
+  position: absolute;
+  top: 0;
+  right: 0;
   background: none;
   border: none;
   padding: 0 $spacing;
-  position: absolute;
-  align-self: flex-end;
   cursor: pointer;
   @media #{$screen-large} {
     display: none;
