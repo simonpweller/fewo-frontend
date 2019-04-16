@@ -1,0 +1,13 @@
+@import "../styles/variables";
+
+.details {
+  @media #{$screen-large} {
+    display: flex;
+  }
+  margin: 0 -$spacing;
+}
+
+.features, .pricing {
+  flex: 1 1 0;
+  padding: 0 $spacing;
+}

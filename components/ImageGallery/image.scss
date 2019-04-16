@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+
+.wrapper {
+  flex: auto;
+  width: 300px;
+  margin: $spacing;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+}
