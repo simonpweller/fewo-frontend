@@ -5,14 +5,14 @@ import Link from 'next/link';
 
 const Accommodations = ({intl}) => {
 
-  const imgApartment = require('../../images/FW.jpg?resize&sizes[]  =600&sizes[]=400&sizes[]=200');
+  const imgApartment = require('../../images/FW.jpg?resize&sizes[]=600&sizes[]=400&sizes[]=200');
   const imgHouse = require('../../images/FH.jpg?resize&sizes[]=600&sizes[]=400&sizes[]=200');
   const sizes = '(max-width: 756px) 100vw, (max-width: 1200px) 50vw, 600px';
 
   return (
     <div className={css.accommodations}>
       <Link href="/ferienwohnung">
-        <a href="/ferienwohnung">
+        <a href="/ferienwohnung" className={css.link}>
           <div className={css.tile}>
             <img
               className={css.img}
@@ -34,7 +34,7 @@ const Accommodations = ({intl}) => {
         </a>
       </Link>
       <Link href={"/ferienhaus"}>
-        <a href={"/ferienhaus"}>
+        <a href={"/ferienhaus"} className={css.link}>
           <div className={css.tile}>
             <img
               className={css.img}

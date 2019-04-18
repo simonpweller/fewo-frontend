@@ -1,14 +1,22 @@
 @import '../../styles/variables';
 
 .accommodations {
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  margin: -$spacing;
+  display: flex;
+  @media(max-width: 756px) {
+    flex-direction: column;
+  }
+}
+
+.link {
+  height: 100%;
 }
 
 .tile {
   position: relative;
   overflow: hidden;
+  margin: $spacing;
+  height: auto;
 
   &:hover {
     .overlay {
