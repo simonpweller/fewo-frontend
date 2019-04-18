@@ -13,6 +13,8 @@
 }
 
 .tile {
+  composes: pops from '../../styles/effects.scss';
+
   position: relative;
   overflow: hidden;
   margin: $spacing;

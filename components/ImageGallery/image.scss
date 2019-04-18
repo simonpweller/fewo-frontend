@@ -7,6 +7,7 @@
 }
 
 .image {
+  composes: pops from '../../styles/effects.scss';
   width: 100%;
   height: auto;
 }
