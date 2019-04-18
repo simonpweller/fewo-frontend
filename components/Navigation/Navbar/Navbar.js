@@ -15,7 +15,12 @@ function Navbar({locale, setLocale, intl}) {
           <ActiveLink href={'/'}>
             <FormattedMessage id={'holidaysInHetzdorf'}/>
           </ActiveLink>
-          <button className={css.toggle} onClick={() => setExpanded(!isExpanded)}>
+          <button
+            className={css.toggle}
+            onClick={() => setExpanded(!isExpanded)}
+            aria-expanded={isExpanded}
+            aria-label={intl.formatMessage({id: 'navigationToggle'})}
+          >
             <div className={isExpanded ? css.bar1Expanded : css.bar}/>
             <div className={isExpanded ? css.bar2Expanded : css.bar}/>
             <div className={isExpanded ? css.bar3Expanded : css.bar}/>
