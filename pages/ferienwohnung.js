@@ -41,7 +41,16 @@ const Ferienwohnung = ({intl}) => {
           </ul>
         </div>
       </div>
-      <ImageGallery/>
+      <ImageGallery
+        images={[
+          'ferienwohnung/aussenansicht.jpg',
+          'ferienwohnung/kueche.jpg',
+          'ferienwohnung/bad.jpg',
+          'ferienwohnung/schlafstube.jpg',
+          'ferienwohnung/wohnstube.jpg',
+          'ferienwohnung/esstisch.jpg',
+        ]}
+      />
     </div>
   );
 };
