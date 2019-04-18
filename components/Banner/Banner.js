@@ -1,23 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './banner.scss';
+import {injectIntl} from 'react-intl';
 
-const Banner = ({title}) => {
+const Banner = ({intl}) => {
 
   const banner = require('../../images/banner.jpg?resize&sizes[]=300&sizes[]=600&sizes[]=1200');
 
   return (
     <div className={css.banner}>
-      <img className={css.img} src={banner.src} srcSet={banner.srcSet} sizes='100vw' alt=""/>
+      <img className={css.img} src={banner.src} srcSet={banner.srcSet} sizes='100vw' alt={intl.formatMessage({id: 'bannerAltText'})} />
       <h1 className={css.text}>
-        {title}
+        {intl.formatMessage({id: 'settlingDown'})}
       </h1>
     </div>
   );
 };
 
-Banner.propTypes = {
-  title: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-};
-
-export default Banner;
+export default injectIntl(Banner);

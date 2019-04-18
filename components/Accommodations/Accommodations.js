@@ -19,7 +19,7 @@ const Accommodations = ({intl}) => {
               src={imgApartment.src}
               srcSet={imgApartment.srcSet}
               sizes={sizes}
-              alt={intl.formatMessage({id: 'apartment'})}
+              alt={intl.formatMessage({id: 'apartmentAltText'})}
             />
             <div className={css.overlay}>
               <h3 className={css.title}>
@@ -41,7 +41,7 @@ const Accommodations = ({intl}) => {
               src={imgHouse.src}
               srcSet={imgHouse.srcSet}
               sizes={sizes}
-              alt={intl.formatMessage({id: 'house'})}
+              alt={intl.formatMessage({id: 'houseAltText'})}
             />
             <div className={css.overlay}>
               <h3 className={css.title}>

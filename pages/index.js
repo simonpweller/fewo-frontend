@@ -13,7 +13,7 @@ export function Index({intl}) {
         </title>
       </Head>
 
-      <Banner title={<FormattedMessage id={'settlingDown'}/>}/>
+      <Banner />
 
       <div className="container">
         <h2><FormattedMessage id={'accommodationsInHetzdorf'}/></h2>
