@@ -24,7 +24,7 @@ const Ferienwohnung = ({intl}) => {
             <li><FormattedMessage id={'apartment.feature.crib'} /></li>
             <li><FormattedMessage id={'apartment.feature.bathroom'} /></li>
             <li><FormattedMessage id={'apartment.feature.tv'} /></li>
-            <li><FormattedMessage id={'object.feature.padio'} /></li>
+            <li><FormattedMessage id={'object.feature.patio'} /></li>
             <li><FormattedMessage id={'object.feature.lawn'} /></li>
             <li><FormattedMessage id={'object.feature.parking'} /></li>
             <li><FormattedMessage id={'apartment.feature.bbq'} /></li>

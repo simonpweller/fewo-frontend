@@ -26,8 +26,8 @@ const Accommodations = ({intl}) => {
                 <FormattedMessage id={'apartment'}/>
               </h3>
               <div className={css.subtitle}>
-                <div>1-3 Personen</div>
-                <div>ab 25€ / Nacht</div>
+                <div><FormattedMessage id={'apartmentNumberOfPeople'}/></div>
+                <div><FormattedMessage id={'apartmentStartingPrice'}/></div>
               </div>
             </div>
           </div>
@@ -48,8 +48,8 @@ const Accommodations = ({intl}) => {
                 <FormattedMessage id={'house'}/>
               </h3>
               <div className={css.subtitle}>
-                <div>2-5 Personen</div>
-                <div>ab 40€ / Nacht</div>
+                <div><FormattedMessage id={'houseNumberOfPeople'}/></div>
+                <div><FormattedMessage id={'houseStartingPrice'}/></div>
               </div>
             </div>
           </div>

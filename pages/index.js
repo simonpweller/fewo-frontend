@@ -20,42 +20,19 @@ export function Index({intl}) {
 
         <Accommodations />
 
-        <p>
-          Herzlich willkommen zwischen Dresden und Erzgebirge – mitten in Sachsen!
-        </p>
+        <p><FormattedMessage id={'index.welcome'}/></p>
 
-        <p>
-          Wir freuen uns über Ihr Interesse an unserem traditionellen Urlaubs- und
-          Erholungsgebiet Tharandter Wald. Im "Schönsten Wald Sachsens" und seinen
-          umliegenden Ortschaften können Sie noch die Sanftheit der Natur spüren,
-          ihre Geheimnisse entdecken, sich aber auch gesund und fit halten.
-        </p>
-        <p>
-          Zahlreiche Sport- und Freizeiteinrichtungen, gemütliche Gaststätten, die
-          Klinik am Tharandter Wald, 180 km gut ausgeschilderte Rad- und Wanderwege
-          oder viele bequem erreichbare Ausflugsziele, um nur einiges zu nennen,
-          bieten Ihnen Urlaubsvergnügen pur.
-        </p>
-        <p>
-          Die zentrale Lage von Hetzdorf bietet den idealen Ausgangspunkt für
-          Tagesausflüge
-        </p>
+        <p><FormattedMessage id={'index.area'}/></p>
+
+        <p><FormattedMessage id={'index.outings'}/></p>
+
+        <p><FormattedMessage id={'index.centralLocation'}/></p>
         <ul>
-          <li>in die Kunststadt Dresden (Semperoper, Zwinger, Frauenkirche)</li>
-          <li>nach Meißen (Porzellanmanufaktur mit Schauwerkstatt)</li>
-          <li>
-            in das Erzgebirge – Heimat der Holzschnitzer und Spielzeughersteller,
-          </li>
-          <li>
-            nach Freiberg (größte originale bergbauliche Untertageanlage, Dom mit
-            Silbermannorgel)
-          </li>
-          <li>
-            sowie das Elbsandsteingebirge; Erlebnisfahrten wie z.B. mit der größten
-            Raddampferflotte der Welt durch das Elbsandsteingebirge oder eine Fahrt
-            mit der dienstältesten dampflockbetriebenen deutschen Schmalspurbahn ins
-            Osterzgebirge und vieles mehr werden Ihnen unvergesslich bleiben
-          </li>
+          <li><FormattedMessage id={'index.destination.1'}/></li>
+          <li><FormattedMessage id={'index.destination.2'}/></li>
+          <li><FormattedMessage id={'index.destination.3'}/></li>
+          <li><FormattedMessage id={'index.destination.4'}/></li>
+          <li><FormattedMessage id={'index.destination.5'}/></li>
         </ul>
       </div>
     </>

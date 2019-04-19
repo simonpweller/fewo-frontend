@@ -24,7 +24,7 @@ const Ferienhaus = ({intl}) => {
             <li><FormattedMessage id={'house.feature.kitchen'} /></li>
             <li><FormattedMessage id={'house.feature.livingroom'} /></li>
             <li><FormattedMessage id={'house.feature.balcony'} /></li>
-            <li><FormattedMessage id={'object.feature.padio'} /></li>
+            <li><FormattedMessage id={'object.feature.patio'} /></li>
             <li><FormattedMessage id={'object.feature.lawn'} /></li>
             <li><FormattedMessage id={'object.feature.parking'} /></li>
             <li><FormattedMessage id={'house.feature.separateEntrance'} /></li>
