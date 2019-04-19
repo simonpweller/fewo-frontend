@@ -1,0 +1,27 @@
+@import '../../styles/variables';
+
+.formRow {
+  display: flex;
+  margin: 0 (-$spacing);
+}
+
+.formField {
+  flex: 1;
+  padding: $spacing;
+  display: flex;
+  flex-direction: column;
+}
+
+.formLabel {
+  color: $default-text;
+}
+
+.input {
+  padding: 5px;
+  border-radius: 3px;
+  border: 1px solid rgba(0,0,0,0.3);
+}
+
+.submitButton {
+  margin: $spacing 0;
+}

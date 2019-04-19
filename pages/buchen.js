@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import BookingForm from '../components/BookingForm';
+import BookingForm from '../components/BookingForm/BookingForm';
 import {FormattedMessage, injectIntl} from 'react-intl';
 
 function Buchen({intl}) {
