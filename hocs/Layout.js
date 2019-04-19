@@ -11,6 +11,7 @@ export default function Layout({ locale, setLocale, children }) {
     <div className={css.layout}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" type="image/png" sizes="32x32" href="../static/favicon-32x32.png" />
       </Head>
 
       <Navbar locale={locale} setLocale={setLocale} />
