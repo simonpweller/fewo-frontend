@@ -7,7 +7,7 @@ import css from './bookingForm.scss';
 const { publicRuntimeConfig = {} } = getConfig() || {};
 
 const initialState = {
-  accommodation: '',
+  accommodation: 'apartment',
   guest: {
     firstName: '',
     lastName: '',
@@ -38,6 +38,9 @@ class BookingForm extends Component {
     } else {
       this.setState({ [name]: value });
     }
+    if (name === 'accommodation') {
+      this.props.setAccommodation(value);
+    }
   };
 
   handleFormSubmit = async (event) => {
@@ -66,12 +69,11 @@ class BookingForm extends Component {
               onChange={this.handleInputChange}
               className={css.input}
             >
-              <option />
-              <option value="house">
-                {formatMessage({ id: 'house' })}
-              </option>
               <option value="apartment">
                 {formatMessage({ id: 'apartment' })}
+              </option>
+              <option value="house">
+                {formatMessage({ id: 'house' })}
               </option>
             </select>
           </div>
