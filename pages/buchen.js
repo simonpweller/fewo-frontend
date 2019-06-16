@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import BookingForm from '../components/BookingForm/BookingForm';
 import {FormattedMessage, injectIntl} from 'react-intl';
-import DatePicker from '../components/DatePicker/DatePicker';
+import DateRangePicker from '../components/DateRangePicker/DateRangePicker';
 
 function Buchen({intl}) {
   return (
@@ -15,7 +15,7 @@ function Buchen({intl}) {
 
 
       <h1><FormattedMessage id={'booking'}/></h1>
-      <DatePicker />
+      <DateRangePicker />
       <BookingForm />
     </div>
   )
