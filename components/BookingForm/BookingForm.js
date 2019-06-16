@@ -39,7 +39,7 @@ class BookingForm extends Component {
       this.setState({ [name]: value });
     }
     if (name === 'accommodation') {
-      this.props.setAccommodation(value);
+      this.props.onChangeAccommodation(value);
     }
   };
 

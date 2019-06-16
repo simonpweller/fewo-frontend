@@ -6,6 +6,13 @@ import DateRangePicker from '../components/DateRangePicker/DateRangePicker';
 
 function Buchen({intl}) {
   const [accommodation, setAccommodation] = useState('apartment');
+  const [from, setFrom] = useState(undefined);
+  const [to, setTo] = useState(undefined);
+  const onChangeAccommodation = (accommodation) => {
+    setAccommodation(accommodation);
+    setFrom(null);
+    setTo(null);
+  };
 
   return (
     <div className="container">
@@ -17,8 +24,8 @@ function Buchen({intl}) {
 
 
       <h1><FormattedMessage id={'booking'}/></h1>
-      <DateRangePicker accommodation={accommodation}/>
-      <BookingForm setAccommodation={setAccommodation}/>
+      <DateRangePicker accommodation={accommodation} from={from} to={to} setFrom={setFrom} setTo={setTo}/>
+      <BookingForm onChangeAccommodation={onChangeAccommodation}/>
     </div>
   )
 }

@@ -8,9 +8,7 @@ import getConfig from 'next/config';
 
 const { publicRuntimeConfig = {} } = getConfig() || {};
 
-const DateRangePicker = ({accommodation, intl}) => {
-  const [from, setFrom] = useState(undefined);
-  const [to, setTo] = useState(undefined);
+const DateRangePicker = ({accommodation, intl, to, from, setTo, setFrom}) => {
 
   function handleDayClick(day) {
     const range = DateUtils.addDayToRange(day, {from, to});
