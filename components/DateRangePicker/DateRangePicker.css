@@ -13,3 +13,7 @@
     border-top-right-radius: 50% !important;
     border-bottom-right-radius: 50% !important;
 }
+
+.Selectable .DayPicker-Day--booked {
+    text-decoration: line-through;
+}

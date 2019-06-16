@@ -1,5 +1,4 @@
 import React, {useState, useEffect} from 'react';
-import {isBefore, addDays, subDays} from 'date-fns';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import './DateRangePicker.css';
@@ -13,8 +12,7 @@ const DateRangePicker = ({accommodation, intl}) => {
   const [from, setFrom] = useState(undefined);
   const [to, setTo] = useState(undefined);
 
-  function handleDayClick(day, modifiers = {}) {
-    if (modifiers.disabled) return;
+  function handleDayClick(day) {
     const range = DateUtils.addDayToRange(day, {from, to});
     setFrom(range.from);
     setTo(range.to);
@@ -82,10 +80,6 @@ const DateRangePicker = ({accommodation, intl}) => {
       ? bookedDatesApartment
       : [];
 
-  const disabledDates = from
-    ? bookedDates.map(date => isBefore(from, date) ? {after: subDays(date, 1)} : {before: addDays(date, 1)})
-    : bookedDates;
-
   return (
     <DayPicker
       locale={intl.locale}
@@ -96,9 +90,8 @@ const DateRangePicker = ({accommodation, intl}) => {
       className="Selectable"
       numberOfMonths={2}
       selectedDays={[from, { from, to }]}
-      modifiers={{start: from, end: to}}
+      modifiers={{start: from, end: to, booked: bookedDates}}
       onDayClick={handleDayClick}
-      disabledDays={disabledDates}
     />
   );
 };
