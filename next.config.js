@@ -1,5 +1,6 @@
 const withPlugins = require('next-compose-plugins');
 const sass = require('@zeit/next-sass');
+const css = require('@zeit/next-css');
 const optimizedImages = require('next-optimized-images');
 
 module.exports = withPlugins(
@@ -11,6 +12,9 @@ module.exports = withPlugins(
           quality: 75,
         },
       },
+    ],
+    [
+      css
     ],
     [
       sass, {
