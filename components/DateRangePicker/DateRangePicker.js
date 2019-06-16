@@ -1,20 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import './DateRangePicker.css';
 import {injectIntl} from 'react-intl';
-import axios from 'axios';
-import getConfig from 'next/config';
 
-const { publicRuntimeConfig = {} } = getConfig() || {};
-
-const DateRangePicker = ({accommodation, intl, to, from, setTo, setFrom}) => {
-
-  function handleDayClick(day) {
-    const range = DateUtils.addDayToRange(day, {from, to});
-    setFrom(range.from);
-    setTo(range.to);
-  }
+const DateRangePicker = ({bookedDates, intl, input: {onChange, value: {from, to}}}) => {
 
   const WEEKDAYS_LONG = [
     intl.formatMessage({id: 'Sunday'}),
@@ -51,32 +41,13 @@ const DateRangePicker = ({accommodation, intl, to, from, setTo, setFrom}) => {
     intl.formatMessage({id: 'December'}),
   ];
 
-  const [bookedDatesHouse, setBookedDatesHouse] = useState([]);
-  const [bookedDatesApartment, setBookedDatesApartment] = useState([]);
-
-  useEffect(() => {
-    axios.get(`${publicRuntimeConfig.apiUrl}/booked-dates/apartment`)
-      .then(res => {
-        setBookedDatesApartment(res.data.map(d => new Date(d)));
-      })
-      .catch(err => {
-        console.error(err);
-      });
-
-    axios.get(`${publicRuntimeConfig.apiUrl}/booked-dates/house`)
-      .then(res => {
-        setBookedDatesHouse(res.data.map(d => new Date(d)));
-      })
-      .catch(err => {
-        console.error(err);
-      });
-  }, []);
-
-  const bookedDates = accommodation === 'house'
-    ? bookedDatesHouse
-    : accommodation === 'apartment'
-      ? bookedDatesApartment
-      : [];
+  function handleDayClick(day) {
+    const range = DateUtils.addDayToRange(day, {from, to});
+    onChange({
+      from: range.from,
+      to: range.to,
+    })
+  }
 
   return (
     <DayPicker

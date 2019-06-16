@@ -1,19 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Head from 'next/head';
-import BookingForm from '../components/BookingForm/BookingForm';
 import {FormattedMessage, injectIntl} from 'react-intl';
-import DateRangePicker from '../components/DateRangePicker/DateRangePicker';
+import BookingForm from '../components/BookingForm/BookingForm';
 
 function Buchen({intl}) {
-  const [accommodation, setAccommodation] = useState('apartment');
-  const [from, setFrom] = useState(undefined);
-  const [to, setTo] = useState(undefined);
-  const onChangeAccommodation = (accommodation) => {
-    setAccommodation(accommodation);
-    setFrom(null);
-    setTo(null);
-  };
-
   return (
     <div className="container">
       <Head>
@@ -22,10 +12,8 @@ function Buchen({intl}) {
         </title>
       </Head>
 
-
       <h1><FormattedMessage id={'booking'}/></h1>
-      <DateRangePicker accommodation={accommodation} from={from} to={to} setFrom={setFrom} setTo={setTo}/>
-      <BookingForm onChangeAccommodation={onChangeAccommodation}/>
+      <BookingForm/>
     </div>
   )
 }

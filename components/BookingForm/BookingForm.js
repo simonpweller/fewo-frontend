@@ -1,221 +1,56 @@
-import React, { Component } from 'react';
+import React, {useEffect, useState} from 'react';
+import {Form} from 'react-final-form';
+import {injectIntl} from 'react-intl';
+import {SelectAccommodation} from './SelectAccommodation';
+import AddressFields from './AddressFields';
+import ContactFields from './ContactFields';
+import CommentsField from './CommentsField';
+import {SubmitButton} from './SubmitButton';
+import axios from 'axios';
 import getConfig from 'next/config';
-import axios from 'axios/index';
-import { injectIntl, FormattedMessage } from 'react-intl';
-import css from './bookingForm.scss';
+import {DatesFields} from './DatesFields';
+import fetchBookedDates from './fetchBookedDates';
 
 const { publicRuntimeConfig = {} } = getConfig() || {};
 
-const initialState = {
-  accommodation: 'apartment',
-  guest: {
-    firstName: '',
-    lastName: '',
-    streetAddress: '',
-    zipCode: '',
-    city: '',
-    phone: '',
-    email: '',
-  },
-  arrivalDate: '',
-  departureDate: '',
-  comments: '',
-};
+const BookingForm = ({intl: {formatMessage}}) => {
 
-class BookingForm extends Component {
+  const [bookedDatesHouse, setBookedDatesHouse] = useState([]);
+  const [bookedDatesApartment, setBookedDatesApartment] = useState([]);
 
-  state = initialState;
+  useEffect(() => fetchBookedDates(setBookedDatesApartment, setBookedDatesHouse), []);
 
-  handleInputChange = (event) => {
-    const { value, name } = event.target;
-    if (name.startsWith('guest.')) {
-      const guestAttribute = name.split('.')[1];
-      const guest = {
-        ...this.state.guest,
-        [guestAttribute]: value,
-      };
-      this.setState({ guest });
-    } else {
-      this.setState({ [name]: value });
-    }
-    if (name === 'accommodation') {
-      this.props.onChangeAccommodation(value);
-    }
-  };
+  return (
+    <Form
+      onSubmit={onSubmit}
+      initialValues={{
+        accommodation: 'apartment',
+      }}
+      render={({handleSubmit, values}) => {
+        const bookedDates = values.accommodation === 'house' ? bookedDatesHouse : bookedDatesApartment;
+        return (
+          <form onSubmit={handleSubmit}>
+            <SelectAccommodation formatMessage={formatMessage}/>
+            <DatesFields bookedDates={bookedDates}/>
+            <AddressFields name="guest"/>
+            <ContactFields name="guest"/>
+            <CommentsField/>
+            <SubmitButton/>
+          </form>
+        );
+      }}
+    />
+  );
 
-  handleFormSubmit = async (event) => {
-    event.preventDefault();
+  async function onSubmit(values, form) {
     try {
-      await axios.post(`${publicRuntimeConfig.apiUrl}/bookings`, this.state);
-      this.setState(initialState);
+      await axios.post(`${publicRuntimeConfig.apiUrl}/bookings`, values);
+      fetchBookedDates(setBookedDatesApartment, setBookedDatesHouse);
+      form.reset();
     } catch (err) {
       console.error(err);
     }
-  };
-
-  render() {
-    const { intl: { formatMessage } } = this.props;
-
-    return (
-      <form onSubmit={this.handleFormSubmit}>
-        <div className={css.formRow}>
-          <div className={css.formField}>
-            <label htmlFor="accommodation" className={css.formLabel}>
-              <FormattedMessage id='accomodation' />
-            </label>
-            <select
-              name="accommodation"
-              value={this.state.accommodation}
-              onChange={this.handleInputChange}
-              className={css.input}
-            >
-              <option value="apartment">
-                {formatMessage({ id: 'apartment' })}
-              </option>
-              <option value="house">
-                {formatMessage({ id: 'house' })}
-              </option>
-            </select>
-          </div>
-        </div>
-        <div className={css.formRow}>
-          <div className={css.formField}>
-            <label htmlFor="guest.firstName" className={css.formLabel}>
-              <FormattedMessage id='firstName' />
-            </label>
-            <input
-              name="guest.firstName"
-              type="text"
-              value={this.state.guest.firstName}
-              onChange={this.handleInputChange}
-              className={css.input}
-            />
-          </div>
-          <div className={css.formField}>
-            <label htmlFor="guest.lastName" className={css.formLabel}>
-              <FormattedMessage id='lastName' />
-            </label>
-            <input
-              name="guest.lastName"
-              type="text"
-              value={this.state.guest.lastName}
-              onChange={this.handleInputChange}
-              className={css.input}
-            />
-          </div>
-        </div>
-        <div className={css.formRow}>
-          <div className={css.formField}>
-            <label htmlFor="guest.streetAddress" className={css.formLabel}>
-              <FormattedMessage id='streetAddress' />
-            </label>
-            <input
-              name="guest.streetAddress"
-              type="text"
-              value={this.state.guest.streetAddress}
-              onChange={this.handleInputChange}
-              className={css.input}
-            />
-          </div>
-        </div>
-        <div className={css.formRow}>
-          <div className={css.formField}>
-            <label htmlFor="guest.zipCode" className={css.formLabel}>
-              <FormattedMessage id='zipcode' />
-            </label>
-            <input
-              name="guest.zipCode"
-              type="text"
-              value={this.state.guest.zipCode}
-              onChange={this.handleInputChange}
-              className={css.input}
-            />
-          </div>
-          <div className={css.formField}>
-            <label htmlFor="guest.city" className={css.formLabel}>
-              <FormattedMessage id='city' />
-            </label>
-            <input
-              name="guest.city"
-              type="text"
-              value={this.state.guest.city}
-              onChange={this.handleInputChange}
-              className={css.input}
-            />
-          </div>
-        </div>
-        <div className={css.formRow}>
-          <div className={css.formField}>
-            <label htmlFor="arrivalDate" className={css.formLabel}>
-              <FormattedMessage id='arrivalDate' />
-            </label>
-            <input
-              name="arrivalDate"
-              type="date"
-              value={this.state.arrivalDate}
-              onChange={this.handleInputChange}
-              className={css.input}
-            />
-          </div>
-          <div className={css.formField}>
-            <label htmlFor="departureDate" className={css.formLabel}>
-              <FormattedMessage id='departureDate' />
-            </label>
-            <input
-              name="departureDate"
-              type="date"
-              value={this.state.departureDate}
-              onChange={this.handleInputChange}
-              className={css.input}
-            />
-          </div>
-        </div>
-        <div className={css.formRow}>
-          <div className={css.formField}>
-            <label htmlFor="guest.phone" className={css.formLabel}>
-              <FormattedMessage id='phoneNumber' />
-            </label>
-            <input
-              name="guest.phone"
-              type="tel"
-              value={this.state.guest.phone}
-              onChange={this.handleInputChange}
-              className={css.input}
-            />
-          </div>
-          <div className={css.formField}>
-            <label htmlFor="guest.email" className={css.formLabel}>
-              <FormattedMessage id='email' />
-            </label>
-            <input
-              name="guest.email"
-              type="email"
-              value={this.state.guest.email}
-              onChange={this.handleInputChange}
-              className={css.input}
-            />
-          </div>
-        </div>
-        <div className={css.formRow}>
-          <div className={css.formField}>
-            <label htmlFor="comments" className={css.formLabel}>
-              <FormattedMessage id='comments' />
-            </label>
-            <textarea
-              name="comments"
-              value={this.state.comments}
-              onChange={this.handleInputChange}
-              className={css.input}
-            />
-          </div>
-        </div>
-
-        <button type="submit" className={css.submitButton}>
-          <FormattedMessage id='requestBooking' />
-        </button>
-      </form>
-    )
   }
-}
+};
 
 export default injectIntl(BookingForm);
