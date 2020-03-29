@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './bookingForm.scss';
 import {FormattedMessage} from 'react-intl';
-import {Field} from 'react-final-form';
+import Field from './Field';
 
 const AddressFields = ({name}) => {
   return (
@@ -9,22 +9,24 @@ const AddressFields = ({name}) => {
       <div className={css.formRow}>
         <div className={css.formField}>
           <label htmlFor={`${name}.firstName`} className={css.formLabel}>
-            <FormattedMessage id='firstName' />
+            <FormattedMessage id='firstName' />*
           </label>
           <Field
             name={`${name}.firstName`}
             component="input"
             className={css.input}
+            required
           />
         </div>
         <div className={css.formField}>
           <label htmlFor={`${name}.lastName`} className={css.formLabel}>
-            <FormattedMessage id='lastName' />
+            <FormattedMessage id='lastName' />*
           </label>
           <Field
             name={`${name}.lastName`}
             component="input"
             className={css.input}
+            required
           />
         </div>
       </div>

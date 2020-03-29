@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './bookingForm.scss';
 import {FormattedMessage} from 'react-intl';
-import {Field} from 'react-final-form';
+import Field from './Field';
 
 const ContactFields = ({name}) => {
   return (
@@ -19,13 +19,14 @@ const ContactFields = ({name}) => {
       </div>
       <div className={css.formField}>
         <label htmlFor={`${name}.email`} className={css.formLabel}>
-          <FormattedMessage id='email' />
+          <FormattedMessage id='email' />*
         </label>
         <Field
           name={`${name}.email`}
           component="input"
           type="email"
           className={css.input}
+          required
         />
       </div>
     </div>

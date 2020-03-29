@@ -3,6 +3,10 @@
 .formRow {
   display: flex;
   margin: 0 (-$spacing);
+  flex-direction: column;
+  @media #{$screen-large} {
+    flex-direction: row;
+  }
 }
 
 .formField {

@@ -111,5 +111,11 @@
   "index.destination.3": "the Ore Mountain Range - home of woodcarvers and toy manufacturers,",
   "index.destination.4": "Freiberg (largest original mining underground facility, cathedral with Silbermann organ)",
   "index.destination.5": "the Elbe Sandstone Mountains, offering scenic routes, the largest fleet of paddle steamers in the world or a ride on the longest-serving German narrow-gauge steam engine railway to the Eastern Ore Mountains and much more",
-  "firstDayOfWeek": "1"
+  "firstDayOfWeek": "1",
+  "valueMissing": "This field is required.",
+  "typeMismatch": "This field contains invalid data.",
+  "selectArrivalDate": "Please select your arrival date.",
+  "selectDepartureDate": "Please select your departure date.",
+  "selectedDates":  "Selected from {arrival} to {departure}",
+  "reset": "Reset"
 }

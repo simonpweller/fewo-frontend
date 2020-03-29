@@ -111,5 +111,11 @@
   "index.destination.3": "in das Erzgebirge – Heimat der Holzschnitzer und Spielzeughersteller,",
   "index.destination.4": "nach Freiberg (größte originale bergbauliche Untertageanlage, Dom mit Silbermannorgel)",
   "index.destination.5": "sowie das Elbsandsteingebirge; Erlebnisfahrten wie z.B. mit der größten Raddampferflotte der Welt durch das Elbsandsteingebirge oder eine Fahrt mit der dienstältesten dampflockbetriebenen deutschen Schmalspurbahn ins Osterzgebirge und vieles mehr werden Ihnen unvergesslich bleiben",
-  "firstDayOfWeek": "1"
+  "firstDayOfWeek": "1",
+  "valueMissing": "Dieses Feld muss ausgefüllt werden.",
+  "typeMismatch": "Ihre Eingabe ist ungültig.",
+  "selectArrivalDate": "Bitte wählen Sie ihr Anreisedatum aus.",
+  "selectDepartureDate": "Bitte wählen Sie ihr Abreisedatum aus.",
+  "selectedDates":  "{arrival} - {departure} ausgewählt",
+  "reset": "Zurücksetzen"
 }

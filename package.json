@@ -29,6 +29,7 @@
     "react-day-picker": "^7.3.0",
     "react-dom": "^16.6.8",
     "react-final-form": "^6.2.1",
+    "react-final-form-html5-validation": "^1.0.3",
     "react-intl": "^2.8.0",
     "react-leaflet": "^2.2.0",
     "responsive-loader": "^1.2.0",

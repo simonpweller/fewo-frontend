@@ -1,16 +1,15 @@
 import css from './bookingForm.scss';
 import {FormattedMessage} from 'react-intl';
-import {Field} from 'react-final-form';
 import React from 'react';
+import Field from './Field';
 
-export function SelectAccommodation({formatMessage}) {
-  return (
+export const SelectAccommodation = ({formatMessage}) => (
     <div className={css.formRow}>
       <div className={css.formField}>
         <label className={css.formLabel}>
-          <FormattedMessage id='accommodation'/>
+          <FormattedMessage id='accommodation'/>*
         </label>
-        <Field name="accommodation" component="select" placeholder="First Name" className={css.input}>
+        <Field name="accommodation" component="select" placeholder="First Name" className={css.input} required>
           <option value="apartment">
             {formatMessage({id: 'apartment'})}
           </option>
@@ -20,5 +19,4 @@ export function SelectAccommodation({formatMessage}) {
         </Field>
       </div>
     </div>
-  );
-}
+);
